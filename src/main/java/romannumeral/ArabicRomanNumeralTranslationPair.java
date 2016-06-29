@@ -1,21 +1,27 @@
 package romannumeral;
 
-import exceptions.NotImplementedException;
+import java.security.InvalidParameterException;
 
 public class ArabicRomanNumeralTranslationPair
 {
 	private Integer arabicNumeral;
 	private String romanNumeral;
 	
-	public ArabicRomanNumeralTranslationPair( Integer arabicNumeral, String romanNumeral ) {
-		throw new NotImplementedException();
+	public ArabicRomanNumeralTranslationPair( Integer arabicNumeral, String romanNumeral ) {	
+		if ( arabicNumeral == null || romanNumeral == null ) {
+			throw new NullPointerException();
+		} else if ( arabicNumeral < 0 || romanNumeral.isEmpty( ) ) {
+			throw new InvalidParameterException();
+		}
+		this.arabicNumeral = arabicNumeral;
+		this.romanNumeral = romanNumeral;
 	}
 
 	public Integer getArabicNumeral( ) {
-		throw new NotImplementedException();
+		return this.arabicNumeral;
 	}
 	
 	public String getRomanNumeral( ) {
-		throw new NotImplementedException();
+		return this.romanNumeral;
 	}
 }
